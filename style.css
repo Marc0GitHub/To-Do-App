@@ -1,0 +1,209 @@
+/* styles.css */
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #ececec;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    margin: 0;
+    transition: .5s ease;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 300px;
+    text-align: center;
+    background: #ffffff67;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.382) 0px 8px 24px;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.remove-button {
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-button:hover {
+    background-color: #e60000;
+}
+
+#dateTime {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    margin-bottom: 50px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #c0971b;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.container.dark-mode {
+    background: #44444491;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode input[type="text"] {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+.dark-mode button {
+    background-color: #c0971b;
+}
+
+.dark-mode button:hover {
+    background-color: #917114;
+}
+
+.dark-mode .remove-button {
+    background-color: #d32f2f;
+}
+
+.dark-mode .remove-button:hover {
+    background-color: #c62828;
+}
+
+.dark-mode #dateTime {
+    color: #ccc;
+}
+
+/* Animated cat styles */
+#catContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevents cats from interfering with clicks */
+    z-index: -1;
+}
+
+.cat {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    animation: fadeInOut 6s ease-in-out forwards, moveCat 6s ease-in-out infinite, rotateCat 6s ease-in-out infinite;    pointer-events: none;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.5); }
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+@keyframes moveCat {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(10px, -20px); }
+    40% { transform: translate(-20px, 10px); }
+    60% { transform: translate(15px, -15px); }
+    80% { transform: translate(-10px, 20px); }
+}
+
+@keyframes rotateCat {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
